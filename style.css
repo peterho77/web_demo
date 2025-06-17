@@ -141,7 +141,7 @@ ul,ol{
     transition:all 0.3s ease;
     transition-behavior: allow-discrete;
 
-    width:max(250px,60%);
+    width:max(300px,60%);
     background:white;
     position:absolute;
     top:calc(100% + 1.1rem);
@@ -149,9 +149,38 @@ ul,ol{
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.header_submenu li{
+.header_submenu_item::before{
+    content:"";
+    display:block;
+    height:calc(80% + .5rem);
+    width:2px;
+    background-color:black;
+    position:absolute;
+    top:0   ;
+    left:0;
+
+    opacity:0;
+    pointer-events:none;
+    transform: scale(1);
+    transform-origin: top;
+    transition:all 0.5s ease;
+    transition-behavior: allow-discrete;
+}
+
+.header_submenu_item:hover a{
+    color: rgb(2, 8, 54);
+}
+
+.header_submenu_item:hover::before{
+    opacity:1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+.header_submenu .header_submenu_item{
     padding:10px;
     width:fit-content;
+    position:relative
 }
 
 .header_submenu li a
