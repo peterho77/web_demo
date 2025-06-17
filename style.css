@@ -128,11 +128,19 @@ ul,ol{
 }
 
 .header_menu_item:hover .header_submenu{
-    display:block;
+    opacity:1;
+    pointer-events: auto;
+    transform: translateX(0);
 }
 
 .header_submenu{
-    display:none;
+    opacity:0;
+    pointer-events: none;
+    transform: translateX(-10px);
+    transform-origin: left;
+    transition:all 0.3s ease;
+    transition-behavior: allow-discrete;
+
     width:max(250px,60%);
     background:white;
     position:absolute;
@@ -151,4 +159,13 @@ ul,ol{
     color:black;
     font-size:var(--step-2);
     font-weight:500;
+}
+
+@keyframes appea{
+    from {
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
 }
